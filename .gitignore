@@ -1,0 +1,13 @@
+# Ignore all prediction save directories
+pred_save_root/
+*/pred_save_root/
+
+# Ignore all .ipynb files and caches
+**/*.ipynb*
+
+# Ignore all nnUNet related files
+nnUNet/
+
+# model weights should be downloaded from a drive
+**/*.pth
+pred_inUse.sh
