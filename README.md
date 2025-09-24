@@ -7,6 +7,18 @@ Typical uses include:
 - Running inference to obtain segmentation masks for analysis.
 - Generating logits to regularize the training of other models as part of a knowledge distillation pipeline.
 
+If you use this repository in your research, please cite the following work:
+```bibtex
+@misc{zhang2025rethinkingpulmonaryembolismsegmentation,
+      title={Rethinking Pulmonary Embolism Segmentation: A Study of Current Approaches and Challenges with an Open Weight Model}, 
+      author={Yixin Zhang and Ryan Chamberlain and Lawrance Ngo and Kevin Kramer and Maciej A. Mazurowski},
+      year={2025},
+      eprint={2509.18308},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2509.18308}, 
+}
+```
 ---
 
 ## Environment
