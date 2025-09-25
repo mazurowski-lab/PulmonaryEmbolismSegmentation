@@ -1,13 +1,13 @@
 # Model Weights for Pulmonary Embolism (PE) Segmentation
 
-This repository contains **model weights trained on 430, and tested on 60 distinct patients** for **Pulmonary Embolism (PE) segmentation** using [nnU-Net v2](https://github.com/MIC-DKFZ/nnUNet). The [model weights](https://drive.google.com/drive/folders/1wvX-rz_VW2kHsvjlx7IPj00ENwo8Sv56) are released under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license. 
+This repository contains **model weights trained on 430, and tested on 60 distinct patients** for **Pulmonary Embolism (PE) segmentation** using [nnU-Net v2](https://github.com/MIC-DKFZ/nnUNet). The [model weights](https://drive.google.com/drive/folders/1wvX-rz_VW2kHsvjlx7IPj00ENwo8Sv56) are released for **Non-Commercial** use. 
 
 Researchers are welcome to use this model to generate segmentation predictions (logits or masks) on their own CT datasets.  
 Typical uses include:
 - Running inference to obtain segmentation masks for analysis.
 - Generating logits to regularize the training of other models as part of a knowledge distillation pipeline.
 
-If you use this repository in your research, please cite the following work:
+If you used resources from this repository in your research, please cite the following work:
 ```bibtex
 @misc{zhang2025rethinkingpulmonaryembolismsegmentation,
       title={Rethinking Pulmonary Embolism Segmentation: A Study of Current Approaches and Challenges with an Open Weight Model}, 
