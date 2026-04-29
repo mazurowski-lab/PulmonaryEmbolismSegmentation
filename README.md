@@ -9,14 +9,13 @@ Typical uses include but are not limited to:
 
 If you used resources from this repository in your research, please cite the following work:
 ```bibtex
-@misc{zhang2025rethinkingpulmonaryembolismsegmentation,
-      title={Rethinking Pulmonary Embolism Segmentation: A Study of Current Approaches and Challenges with an Open Weight Model}, 
-      author={Yixin Zhang and Ryan Chamberlain and Lawrence Ngo and Kevin Kramer and Maciej A. Mazurowski},
-      year={2025},
-      eprint={2509.18308},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2509.18308}, 
+@article{zhang2026rethinking,
+  title={Rethinking Pulmonary Embolism Segmentation: A Study of Current Approaches and Challenges with an Open Weight Model},
+  author={Zhang, Yixin and Chamberlain, Ryan and Ngo, Lawrence and Kramer, Kevin and Mazurowski, Maciej A},
+  journal={Journal of Imaging Informatics in Medicine},
+  pages={1--13},
+  year={2026},
+  publisher={Springer}
 }
 ```
 ---
