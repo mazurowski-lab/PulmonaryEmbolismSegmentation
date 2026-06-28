@@ -175,22 +175,11 @@ PulmonaryEmbolismSegmentation/
           dataset_fingerprint.json
 ```
 
-## Validation
+## Evaluation
 
-A 40-case validation pass was run on the pixel-level annotated dataset used for
-testing portability. Dice scores are computed after resampling predictions back
-to the original DICOM grid.
-
-| Group | n | Mean Dice | Median Dice | Min | Max | Dice >= 0.5 | Dice >= 0.7 |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| GE | 20 | 0.5934 | 0.6918 | 0.0016 | 0.8512 | 15 | 10 |
-| Toshiba | 20 | 0.4780 | 0.7103 | 0.0000 | 0.8020 | 11 | 11 |
-| All | 40 | 0.5357 | 0.7035 | 0.0000 | 0.8512 | 26 | 21 |
-
-Additional input-axis permutation checks were run on low-performing cases
-(`04TS`, `20GE`, `01TS`, `17TS`). The original `(z, y, x)` input order gave the
-best Dice in each tested case, suggesting these failures are not explained by a
-simple array transpose mismatch.
+Evaluation details are described in the associated paper. This README does not
+report standalone evaluation metrics because performance should be interpreted
+in the context of the dataset, preprocessing, and intended research use.
 
 ## Citation
 
