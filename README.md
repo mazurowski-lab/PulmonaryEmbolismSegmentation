@@ -10,6 +10,7 @@ plain-PyTorch/Hugging Face implementation that removes runtime dependencies on
 `nnunetv2` and `dynamic-network-architectures`.
 
 - Paper: https://link.springer.com/article/10.1007/s10278-026-01958-4
+- Hugging Face model: https://huggingface.co/yzluka/PulmonaryEmbolismSegmentation
 - Model weights: https://drive.google.com/drive/folders/1wvX-rz_VW2kHsvjlx7IPj00ENwo8Sv56
 - Contact: Yixin Zhang, yz696@duke.edu
 
@@ -28,9 +29,41 @@ or logits on their own CT datasets. Typical uses include:
 This model is intended for research use only. It is not a medical device and
 should not be used for clinical decision-making without appropriate validation.
 
-## Portable Hugging Face Model Code
+## Two Supported Inference Channels
 
-The portable implementation is provided in:
+This repository supports two ways to run the model:
+
+- **Hugging Face channel, recommended for most users:** portable PyTorch model
+  loading and sliding-window inference without installing nnU-Net.
+- **nnU-Net channel, for reproducing the original release:** original nnU-Net
+  v2 folder layout, checkpoints, and `pred_template.sh`.
+
+## Channel 1: Hugging Face
+
+For most users, the easiest way to use the model is the Hugging Face version:
+
+```bash
+git clone https://github.com/mazurowski-lab/PulmonaryEmbolismSegmentation.git
+cd PulmonaryEmbolismSegmentation
+pip install -e .[inference]
+```
+
+Then run inference directly from the published model repo:
+
+```bash
+python scripts/run_inference.py \
+  --model-dir yzluka/PulmonaryEmbolismSegmentation \
+  --input path/to/dicom_or_nifti_or_numpy \
+  --output outputs/case_segmentation.npz \
+  --tile-size 128,256,256
+```
+
+This path downloads the converted model from Hugging Face and does not require
+installing nnU-Net v2 or `dynamic-network-architectures`.
+
+## Model Code
+
+The portable implementation is provided in this repository:
 
 - `pulmonary_embolism_segmentation/`
 - `configuration_pe_segmentation.py`
@@ -40,6 +73,10 @@ The portable implementation is provided in:
 
 The architecture is implemented directly in PyTorch while matching the nnU-Net
 v2 ResidualEncoderUNet checkpoint structure.
+
+## Python Loading
+
+To load the model architecture and weights in Python:
 
 ```python
 from transformers import AutoModel
@@ -63,23 +100,7 @@ The default configuration is copied from the upstream `3d_fullres` plan:
 - CT clipping: `[-195, 305]`
 - CT normalization mean/std: `37.060203552246094` / `92.34374237060547`
 
-## Portable Inference
-
-Install the lightweight package:
-
-```bash
-pip install -e .
-```
-
-For DICOM, NIfTI, or NumPy input, use:
-
-```bash
-python scripts/run_inference.py \
-  --model-dir hf_pe_segmentation_fold_all \
-  --input path/to/input \
-  --output outputs/case_segmentation.npz \
-  --tile-size 128,256,256
-```
+## Preprocessing
 
 The inference helper follows the nnU-Net v2 preprocessing/export order:
 
@@ -98,8 +119,9 @@ a smaller `--min-tile-size` or run with `--device cpu`.
 
 ## Convert nnU-Net Weights
 
-After downloading an nnU-Net checkpoint, convert it into a Hugging Face model
-folder:
+Manual conversion is only needed if you want to rebuild the Hugging Face model
+folder from the original nnU-Net checkpoints. After downloading an nnU-Net
+checkpoint, convert it with:
 
 ```bash
 python scripts/convert_nnunet_checkpoint.py \
@@ -110,7 +132,7 @@ python scripts/convert_nnunet_checkpoint.py \
 The converter accepts common nnU-Net checkpoint dictionaries such as
 `network_weights`, `state_dict`, or a raw state dict.
 
-## Original nnU-Net v2 Workflow
+## Channel 2: Original nnU-Net v2 Workflow
 
 The original release uses nnU-Net v2 inference folders. To reproduce that
 workflow:

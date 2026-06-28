@@ -85,7 +85,7 @@ def parse_tile_size(value: str):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-dir", required=True, type=Path)
+    parser.add_argument("--model-dir", required=True, help="Local model folder or Hugging Face repo ID.")
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--device", default=None)
