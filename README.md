@@ -11,6 +11,7 @@ plain-PyTorch/Hugging Face implementation that removes runtime dependencies on
 
 - Paper: https://link.springer.com/article/10.1007/s10278-026-01958-4
 - Hugging Face model: https://huggingface.co/yzluka/PulmonaryEmbolismSegmentation
+- Hugging Face model card: https://huggingface.co/yzluka/PulmonaryEmbolismSegmentation#model-card
 - Model weights: https://drive.google.com/drive/folders/1wvX-rz_VW2kHsvjlx7IPj00ENwo8Sv56
 - Contact: Yixin Zhang, yz696@duke.edu
 
