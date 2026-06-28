@@ -4,10 +4,21 @@ pred_save_root/
 
 # Ignore all .ipynb files and caches
 **/*.ipynb*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.hf_modules_cache/
 
 # Ignore all nnUNet related files
 nnUNet/
 
 # model weights should be downloaded from a drive
 **/*.pth
+*.pt
+*.ckpt
+hf_pe_segmentation*/
+outputs/
+sample_data/
+model_weights/
 pred_inUse.sh

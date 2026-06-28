@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pulmonary-embolism-segmentation"
+version = "0.1.0"
+description = "Portable Hugging Face wrapper for the Pulmonary Embolism Segmentation ResidualEncoderUNet."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.4",
+    "transformers>=4.40",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "scikit-image>=0.22",
+]
+
+[project.optional-dependencies]
+inference = [
+    "nibabel>=5.0",
+    "SimpleITK>=2.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pulmonary_embolism_segmentation*"]
