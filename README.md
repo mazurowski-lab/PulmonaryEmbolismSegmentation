@@ -45,7 +45,7 @@ v2 ResidualEncoderUNet checkpoint structure.
 from transformers import AutoModel
 
 model = AutoModel.from_pretrained(
-    "PATH_OR_HF_REPO_ID",
+    "yzluka/PulmonaryEmbolismSegmentation",
     trust_remote_code=True,
 )
 ```
